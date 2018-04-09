@@ -1,6 +1,6 @@
 package com.nbbse.printer;
 
-import com.nbbse.printer.Printer;
+import com.nbbse.printapi.*;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
