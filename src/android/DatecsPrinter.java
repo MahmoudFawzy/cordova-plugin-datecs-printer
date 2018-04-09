@@ -1,3 +1,5 @@
+package com.giorgiofellipe.datecsprinter;
+
 import com.nbbse.printer.Printer;
 
 import org.apache.cordova.CallbackContext;
@@ -22,12 +24,10 @@ public class DatecsPrinter extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		  
-		switch (action) { 
-			case "printText":
-				// String text = args.getString(0);
+		if (action == "printText") { 
+		// String text = args.getString(0);
 				// String charset = args.getString(1);
 				// printer.printTaggedText(text, charset);
-				break; 
 		}
 		return true;
 	}
