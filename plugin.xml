@@ -29,7 +29,7 @@
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <source-file src="src/android/MP3.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/MP3.jar" target-dir="libs"  />
         <source-file src="src/android/DatecsPrinter.java" target-dir="src/com/giorgiofellipe/datecsprinter" />
         
     </platform>
