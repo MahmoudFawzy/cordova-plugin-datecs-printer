@@ -1,6 +1,6 @@
 package com.giorgiofellipe.datecsprinter;
 
-import com.nbbse.printer.Printer;
+import com.nbbse.printer;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
