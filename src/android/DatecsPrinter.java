@@ -1,4 +1,4 @@
-package com.nbbse.printer;
+package com.giorgiofellipe.datecsprinter;
 
 import com.nbbse.printapi.*;
 
