@@ -35,7 +35,6 @@ public class DatecsPrinter extends CordovaPlugin {
 
 		}
 		
-	 
-		return true;
+	  
 	}
 }
