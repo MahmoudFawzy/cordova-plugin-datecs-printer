@@ -26,7 +26,7 @@ public class DatecsPrinter extends CordovaPlugin {
             String name = args.getString(0);
             String message = "Hello, " + name;
             callbackContext.success(message);
-			//print.printText("Printer testing!!!");
+			print.printText("Printer testing!!!");
             return true;
 
         } else {
