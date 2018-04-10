@@ -14,7 +14,7 @@ public class DatecsPrinter extends CordovaPlugin {
 
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
-		print = Printer.getInstance();
+		
 	 
 	}
 
@@ -25,7 +25,8 @@ public class DatecsPrinter extends CordovaPlugin {
 
             String name = args.getString(0);
             String message = "Hello, " + name;
-            callbackContext.success(message);
+			callbackContext.success(message);
+			print = Printer.getInstance();
 			print.printText("Printer testing!!!");
             return true;
 
