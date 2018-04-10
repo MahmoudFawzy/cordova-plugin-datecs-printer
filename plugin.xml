@@ -29,7 +29,7 @@
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <source-file src="src/android/com.nbbse.mobiprint3-v0.4.jar" target-dir="libs"  />
+        <source-file src="src/android/mobiprint3.jar" target-dir="libs"  />
         <source-file src="src/android/DatecsPrinter.java" target-dir="src/com/giorgiofellipe/datecsprinter" />
         
     </platform>
