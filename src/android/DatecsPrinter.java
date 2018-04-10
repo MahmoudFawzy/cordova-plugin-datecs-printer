@@ -1,6 +1,7 @@
 package com.giorgiofellipe.datecsprinter;
 
-import com.nbbse.printapi.*;
+
+import com.nbbse.mobiprint3.*;
 
 
 import org.apache.cordova.*;
@@ -25,9 +26,9 @@ public class DatecsPrinter extends CordovaPlugin {
 
             String name = args.getString(0);
             String message = "Hello, " + name;
-			callbackContext.success(message);
 			print = Printer.getInstance();
 			print.printText("Printer testing!!!");
+			callbackContext.success(message);
             return true;
 
         } else {
