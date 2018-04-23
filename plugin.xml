@@ -8,8 +8,7 @@
     <description>Printer Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova, bluetooth, printer, datecs</keywords>
-
-    <asset src="www/printer.js" target="js/printer.js"/>
+ 
 
     <js-module src="www/printer.js" name="m3printer">
         <clobbers target="m3printer" />
