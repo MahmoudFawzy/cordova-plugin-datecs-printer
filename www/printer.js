@@ -16,9 +16,9 @@ var printer = {
         alert(2)
         exec(onSuccess, onError, 'M3Printer', 'printText', [text, charset]);
     },
-    printBase64: function(text, charset, onSuccess, onError) {
+    printBase64: function(base64, onSuccess, onError) {
         alert(3)
-        exec(onSuccess, onError, 'M3Printer', 'printBase64', [text, charset]);
+        exec(onSuccess, onError, 'M3Printer', 'printBase64', [base64]);
     }
 };
 module.exports = printer;
