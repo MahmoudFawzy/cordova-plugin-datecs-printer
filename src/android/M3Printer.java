@@ -8,6 +8,7 @@ import org.apache.cordova.*;
 
 import java.io.*;  
 import java.util.*; 
+import java.util.Base64.*; 
  
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +19,7 @@ import android.os.Handler;
  
 import android.graphics.*; 
 import android.graphics.Bitmap.*; 
+import android.graphics.Base64.*; 
 import android.util.Xml.Encoding;  
 
 
