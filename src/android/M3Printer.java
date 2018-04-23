@@ -27,6 +27,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Bitmap.Config;
+import android.graphics.Bitmap.CompressFormat;
 import android.util.Xml.Encoding;
 import android.util.Base64;
 import java.util.ArrayList;
