@@ -72,7 +72,7 @@ public class M3Printer extends CordovaPlugin {
 
 			//byte[] bt = decodeBitmap(bitmap); 
 
-			print.printBitmap(is); 
+			print.printBitmap(stream); 
 			print.printEndLine();
 			callbackContext.success("1");
             return true; 
