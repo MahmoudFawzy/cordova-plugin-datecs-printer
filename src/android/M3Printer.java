@@ -14,18 +14,24 @@ public class M3Printer extends CordovaPlugin {
 	  
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);	 
+		print = Printer.getInstance();
 	}
 
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException { 
 		if (action.equals("printText")) { 
-            String name = args.getString(0);
-            String message = "Hello, " + name;
-			print = Printer.getInstance();
-			print.printText("Printer testing!!!");
-			callbackContext.success(message);
+            String txt = args.getString(0);  
+			print.printText(txt);
+			callbackContext.success("1");
             return true; 
-        } else { 
+		} 
+		else if (action.equals("printBase64")) { 
+            String txt = args.getString(0); 
+			print.printText(txt);
+			callbackContext.success("1");
+            return true; 
+		} 
+		else { 
             return false; 
 		} 
 	}
