@@ -2,6 +2,7 @@ package com.m3printer;
 
 
 import com.nbbse.mobiprint3.*;
+import org.apache.cordova.*;
 
 
 
@@ -12,16 +13,11 @@ import java.io.OutputStream;
 import java.util.Hashtable;
 import java.util.Set;
 import java.util.UUID;
-
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaPlugin;
+ 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
+ 
 import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
