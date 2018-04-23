@@ -6,22 +6,31 @@ import org.apache.cordova.*;
 
 
 
-import java.io.*;  
-import java.util.*; 
-import java.util.Base64.*; 
+import java.io.*; 
+import java.util.Hashtable;
+import java.util.Set;
+import java.util.UUID;
  
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
  
 import android.content.Intent;
-import android.os.Handler; 
- 
-import android.graphics.*; 
-import android.graphics.Bitmap.*; 
-import android.graphics.Base64.*; 
-import android.util.Xml.Encoding;  
-import android.util.Base64.*;  
+import android.os.Handler;
+import android.util.Log;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Bitmap.Config;
+import android.util.Xml.Encoding;
+import android.util.Base64;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class M3Printer extends CordovaPlugin {
@@ -53,16 +62,16 @@ public class M3Printer extends CordovaPlugin {
 			int mHeight = bitmap.getHeight();
 
 			bitmap = resizeImage(bitmap, 48 * 8, mHeight);
-
+			
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
-			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+			bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 			byte[] byteArray = stream.toByteArray();
 			bitmap.recycle();
 
 
 			//byte[] bt = decodeBitmap(bitmap); 
 
-			print.printBitmap(stream); 
+			print.printBitmap(is); 
 			print.printEndLine();
 			callbackContext.success("1");
             return true; 
