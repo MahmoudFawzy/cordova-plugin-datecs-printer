@@ -37,11 +37,11 @@ import java.util.List;
 
 
 public class M3Printer extends CordovaPlugin {
-	public static Printer print;
+	public static com.nbbse.mobiprint3.Printer print;
 	  
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);	 
-		print = Printer.getInstance();
+		print = com.nbbse.mobiprint3.Printer.getInstance();
 	}
 
 	@Override
@@ -66,6 +66,7 @@ public class M3Printer extends CordovaPlugin {
 
 			bitmap = resizeImage(bitmap, 48 * 8, mHeight);
 			
+			print = com.nbbse.mobiprint3.Printer.getInstance();
 			printer.printBitmap(bitmap);
 
 			print.printEndLine();
