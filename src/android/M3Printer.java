@@ -11,8 +11,7 @@ import org.json.JSONException;
 
 public class M3Printer extends CordovaPlugin {
 	public static Printer print;
-	 
-
+	  
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);	 
 	}
