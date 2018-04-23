@@ -1,4 +1,4 @@
-package com.m3printer;
+package com.m3printer.m3printer;
 
 
 import com.nbbse.mobiprint3.*;

@@ -19,7 +19,7 @@
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="m3printer">
-                <param name="android-package" value="com.m3printer.M3Printer"/>
+                <param name="android-package" value="com.m3printer.m3printer.M3Printer"/>
             </feature>
         </config-file>
 
