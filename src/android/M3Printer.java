@@ -4,13 +4,6 @@ package com.m3printer;
 import com.nbbse.mobiprint3.*;
 
 
-import org.apache.cordova.*;
-import org.json.*; 
-import java.io.*; 
-import java.util.*;
-import android.graphics.*;
-import android.graphics.Bitmap.*;
-import android.util.Xml.*; 
 
 
 import org.apache.cordova.CallbackContext;
@@ -20,6 +13,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Bitmap.Config;
+import android.util.Xml.Encoding;
+import android.util.Base64;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Hashtable;
+import java.util.Set;
+import java.util.UUID;
 
 public class M3Printer extends CordovaPlugin {
 	public static Printer print;
@@ -61,4 +73,27 @@ public class M3Printer extends CordovaPlugin {
             return false; 
 		} 
 	}
+
+	private static Bitmap resizeImage(Bitmap bitmap, int w, int h) {
+		Bitmap BitmapOrg = bitmap;
+		int width = BitmapOrg.getWidth();
+		int height = BitmapOrg.getHeight();
+    
+		if (width > w) {
+		    float scaleWidth = ((float) w) / width;
+		    float scaleHeight = ((float) h) / height + 24;
+		    Matrix matrix = new Matrix();
+		    matrix.postScale(scaleWidth, scaleWidth);
+		    Bitmap resizedBitmap = Bitmap.createBitmap(BitmapOrg, 0, 0, width,
+				height, matrix, true);
+		    return resizedBitmap;
+		} else {
+		    Bitmap resizedBitmap = Bitmap.createBitmap(w, height + 24, Config.RGB_565);
+		    Canvas canvas = new Canvas(resizedBitmap);
+		    Paint paint = new Paint();
+		    canvas.drawColor(Color.WHITE);
+		    canvas.drawBitmap(bitmap, (w - width) / 2, 0, paint);
+		    return resizedBitmap;
+		}
+	  }
 }
