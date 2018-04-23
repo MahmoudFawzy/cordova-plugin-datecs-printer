@@ -21,6 +21,7 @@ import android.graphics.*;
 import android.graphics.Bitmap.*; 
 import android.graphics.Base64.*; 
 import android.util.Xml.Encoding;  
+import android.util.Base64.*;  
 
 
 public class M3Printer extends CordovaPlugin {
