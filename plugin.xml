@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-datecs-printer"
+        id="cordova-plugin-m3printer"
         version="0.8.2">
 
-    <name>DatecsPrinter</name>
-    <description>Cordova Datecs Mobile Bluetooth Printer Plugin</description>
+    <name>M3Printer</name>
+    <description>Printer Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova, bluetooth, printer, datecs</keywords>
 
-    <js-module src="www/printer.js" name="DatecsPrinter">
-        <clobbers target="DatecsPrinter" />
+    <js-module src="www/printer.js" name="M3Printer">
+        <clobbers target="M3Printer" />
     </js-module>
 
     <!-- android -->
@@ -19,18 +19,16 @@
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="DatecsPrinter">
-                <param name="android-package" value="com.giorgiofellipe.datecsprinter.DatecsPrinter"/>
+                <param name="android-package" value="com.m3printer.M3Printer"/>
             </feature>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.BLUETOOTH" />
-            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> 
         </config-file>
 
-        <source-file src="src/android/com.nbbse.mobiprint3-v0.4.jar" target-dir="libs"  />
-        <source-file src="src/android/DatecsPrinter.java" target-dir="src/com/giorgiofellipe/datecsprinter" />
+        <source-file src="src/android/com.m3printer.jar" target-dir="libs"  />
+        <source-file src="src/android/M3Printer.java" target-dir="src/com/m3printer" />
         
     </platform>
 </plugin>

@@ -14,7 +14,7 @@ var printer = {
     },
     printText: function(text, charset, onSuccess, onError) {
         alert(2)
-        exec(onSuccess, onError, 'DatecsPrinter', 'printText', [text, charset]);
+        exec(onSuccess, onError, 'M3Printer', 'printText', [text, charset]);
     }
 };
 module.exports = printer;
