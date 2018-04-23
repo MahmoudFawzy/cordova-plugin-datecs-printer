@@ -9,8 +9,10 @@
     <license>Apache 2.0</license>
     <keywords>cordova, bluetooth, printer, datecs</keywords>
 
-    <js-module src="www/printer.js" name="M3Printer">
-        <clobbers target="M3Printer" />
+    <asset src="www/printer.js" target="js/printer.js"/>
+
+    <js-module src="www/printer.js" name="m3printer">
+        <clobbers target="m3printer" />
     </js-module>
 
     <!-- android -->
@@ -18,7 +20,7 @@
         <framework src="com.android.support:support-v4:+" value="gradle" />
 
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="m3printer">
+            <feature name="M3Printer">
                 <param name="android-package" value="com.m3printer.m3printer.M3Printer"/>
             </feature>
         </config-file>
@@ -28,7 +30,7 @@
         </config-file>
 
         <source-file src="src/android/com.m3printer.jar" target-dir="libs"  />
-        <source-file src="src/android/M3Printer.java" target-dir="src/com/m3printer/m3printer" />
+        <source-file src="src/android/M3Printer.java" target-dir="src/com/m3printer/plugin/" />
         
     </platform>
 </plugin>
