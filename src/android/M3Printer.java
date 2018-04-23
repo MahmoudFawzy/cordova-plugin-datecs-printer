@@ -62,10 +62,16 @@ public class M3Printer extends CordovaPlugin {
 			int mHeight = bitmap.getHeight();
 
 			bitmap = resizeImage(bitmap, 48 * 8, mHeight);
-			byte[] bt = decodeBitmap(bitmap);
-			InputStream is = new ByteArrayInputStream(bt);
 
-			print.printBitmap(is); 
+			ByteArrayOutputStream stream = new ByteArrayOutputStream();
+			bmp.compress(Bitmap.CompressFormat.Bitmap, 100, stream);
+			byte[] byteArray = stream.toByteArray();
+			bmp.recycle();
+
+
+			//byte[] bt = decodeBitmap(bitmap); 
+
+			print.printBitmap(stream); 
 			print.printEndLine();
 			callbackContext.success("1");
             return true; 
