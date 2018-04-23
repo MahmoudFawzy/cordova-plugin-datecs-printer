@@ -6,10 +6,7 @@ import org.apache.cordova.*;
 
 
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*; 
 import java.util.Hashtable;
 import java.util.Set;
 import java.util.UUID;
