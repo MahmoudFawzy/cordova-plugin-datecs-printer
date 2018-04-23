@@ -29,6 +29,7 @@
 
         <source-file src="src/android/com.m3printer.jar" target-dir="libs"  />
         <source-file src="src/android/M3Printer.java" target-dir="src/com/m3printer/plugin/" />
+        <source-file src="src/android/BitmapEncoder.java" target-dir="src/com/m3printer/plugin/" />
         
     </platform>
 </plugin>
