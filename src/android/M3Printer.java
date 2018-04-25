@@ -59,8 +59,8 @@ public class M3Printer extends CordovaPlugin {
 			Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
 
 			 
-			// int mWidth = bitmap.getWidth();
-			// int mHeight = bitmap.getHeight();
+			int mWidth = bitmap.getWidth();
+			int mHeight = bitmap.getHeight();
 
 			 bitmap = resizeImage(bitmap, 48 * 8, mHeight);
 			
