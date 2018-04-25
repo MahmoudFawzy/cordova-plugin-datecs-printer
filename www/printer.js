@@ -20,6 +20,7 @@ var printer = {
         exec(onSuccess, onError, 'M3Printer', 'printBase64', [base64]);
     },
     printPath: function(base64, onSuccess, onError) {
+        alert(0)
         exec(onSuccess, onError, 'M3Printer', 'printPath', [base64]);
     }
 };
