@@ -31,8 +31,7 @@ import android.graphics.Bitmap.CompressFormat;
 import android.util.Xml.Encoding;
 import android.util.Base64;
 import java.util.ArrayList;
-import java.util.List;
-
+import java.util.List; 
 
 public class M3Printer extends CordovaPlugin {
 	public static com.nbbse.mobiprint3.Printer print;
@@ -53,10 +52,15 @@ public class M3Printer extends CordovaPlugin {
 		} 
 		else if (action.equals("printPath")) { 
 			String txt = args.getString(0); 
-			  
+
+			BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+			Bitmap bitmap = BitmapFactory.decodeFile(txt, options);
+			selected_photo.setImageBitmap(bitmap);
+			
 			print.printBitmap(txt); 
 			print.printEndLine();
-			callbackContext.success("1");
+			callbackContext.success(bitmap.getWidth());
             return true; 
 		} 
 		else if (action.equals("printBase64")) { 
