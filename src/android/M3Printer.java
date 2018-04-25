@@ -56,7 +56,7 @@ public class M3Printer extends CordovaPlugin {
 			BitmapFactory.Options options = new BitmapFactory.Options();
 			options.inPreferredConfig = Bitmap.Config.ARGB_8888;
 			Bitmap bitmap = BitmapFactory.decodeFile(txt, options);
-			selected_photo.setImageBitmap(bitmap);
+			 
 			
 			print.printBitmap(txt); 
 			print.printEndLine();
