@@ -68,10 +68,9 @@ public class M3Printer extends CordovaPlugin {
 			// bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 			// byte[] byteArray = stream.toByteArray();
 			// bitmap.recycle();
-
-
-			byte[] bt = decodeBitmap(bitmap); 
-			convertARGBToGrayscale(bt, mWidth, mHeight);
+ 
+			// byte[] bt = decodeBitmap(bitmap); 
+			// convertARGBToGrayscale(bt, mWidth, mHeight);
 			print.printBitmap(bitmap); 
 			print.printEndLine();
 			callbackContext.success("1");
@@ -82,7 +81,7 @@ public class M3Printer extends CordovaPlugin {
 		} 
 	}
 
-	private static void convertARGBToGrayscale(byte[] argb, int width, int height) {
+	private static void convertARGBToGrayscale(int[] argb, int width, int height) {
         int pixels = width * height;
 
         for(int i = 0; i < pixels; ++i) {
