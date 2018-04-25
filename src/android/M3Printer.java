@@ -51,6 +51,14 @@ public class M3Printer extends CordovaPlugin {
 			callbackContext.success("1");
             return true; 
 		} 
+		else if (action.equals("printPath")) { 
+			String txt = args.getString(0); 
+			  
+			print.printBitmap(txt); 
+			print.printEndLine();
+			callbackContext.success("1");
+            return true; 
+		} 
 		else if (action.equals("printBase64")) { 
 			String txt = args.getString(0); 
 			 
