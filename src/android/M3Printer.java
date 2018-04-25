@@ -68,7 +68,9 @@ public class M3Printer extends CordovaPlugin {
 			 
 			final byte[] decodedBytes = Base64.decode(txt, Base64.DEFAULT);
 
-			Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+			BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+			Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length,options);
 
 			 
 			int mWidth = bitmap.getWidth();
