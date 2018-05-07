@@ -54,6 +54,31 @@ public class M3Printer extends CordovaPlugin {
 				print.printText(jO.getString("Value"), 1, false);
 			}
 
+			print.printText("تكلفة الخدمة", 1, true);
+			print.printText(json.getJSONObject("Reciept").getString("Totalprice"), 1, false);
+
+			print.printText("رسوم التحصيل", 1, true);
+			print.printText(json.getJSONObject("Reciept").getString("Fees"), 1, false);
+
+			int tot = json.getJSONObject("Reciept").getInt("Totalprice") + json.getJSONObject("Reciept").getInt("Fees");
+			print.printText("الإجمالي", 1, true);
+			print.printText(tot.toString(), 1, false);
+
+			print.printText("تاريخ التحصيل", 1, true);
+			print.printText(json.getJSONObject("Reciept").getString("AddedTime"), 1, false);
+
+			print.printText("وقت التحصيل", 1, true);
+			print.printText(json.getJSONObject("Reciept").getString("AddedTime"), 1, false);
+
+			print.printText("رقم الفرع", 1, true);
+			print.printText(json.getJSONObject("Reciept").getString("AgentCode"), 1, false);
+
+			print.printText("رقم الفاتورة", 1, true);
+			print.printText(json.getJSONObject("Reciept").getString("InvoiceId"), 1, false);
+
+			print.printText("حالة الفاتورة", 1, true);
+			print.printText(json.getJSONObject("Reciept").getString("Status"), 1, false);
+
 			print.printEndLine();
 			callbackContext.success("1");
 			return true;
