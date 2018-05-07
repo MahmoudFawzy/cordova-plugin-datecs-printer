@@ -45,8 +45,15 @@ public class M3Printer extends CordovaPlugin {
 			String txt = args.getString(0);
 
 			JSONObject json = new JSONObject(txt);
+			JSONArray jReciept = json.getJSONObject("Reciept").getJSONArray("Fields");
 
-			print.printText(json.getString("StatusDescription"), 2, true);
+			for (int i = 0; j < jReciept.length; i++) {
+				JSONObject jO = translations.getJSONObject(i);
+
+				print.printText(jO.getString("FieldName"), 1, true);
+				print.printText(jO.getString("Value"), 1, false);
+			}
+
 			print.printEndLine();
 			callbackContext.success("1");
 			return true;
