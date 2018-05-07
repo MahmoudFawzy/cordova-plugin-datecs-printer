@@ -26,6 +26,7 @@ import android.graphics.Paint;
 import android.graphics.Bitmap.Config;
 import android.graphics.Bitmap.CompressFormat;
 import android.util.Xml.Encoding;
+import jdk.nashorn.internal.parser.*;
 import android.util.Base64;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +43,10 @@ public class M3Printer extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if (action.equals("printText")) {
 			String txt = args.getString(0);
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(txt);
 
-			print.printText(txt);
+			print.printText((String) jsonObject.get("StatusDescription"), 2, true);
 			print.printEndLine();
 			callbackContext.success("1");
 			return true;
