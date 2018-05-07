@@ -33,6 +33,7 @@ import android.util.Base64;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.*;
+import android.R;
 
 public class M3Printer extends CordovaPlugin {
 	public static com.nbbse.mobiprint3.Printer print;
