@@ -94,6 +94,9 @@ public class M3Printer extends CordovaPlugin {
 			print.printText("حالة الفاتورة", 1, true);
 			print.printText(s_str, 1, false);
 
+			print.printText("----------------------------------------------------", 1, true);
+			print.printText(json.getJSONObject("Reciept").getString("Footer"), 1, true);
+
 			print.printEndLine();
 			callbackContext.success("1");
 			return true;
