@@ -52,7 +52,7 @@ public class M3Printer extends CordovaPlugin {
 			for (int i = 0; i < jReciept.length(); i++) {
 				JSONObject jO = jReciept.getJSONObject(i);
 
-				print.printText(jO.getString("FieldName"), 1.5, true);
+				print.printText(jO.getString("FieldName"), 1, true);
 				print.printText(jO.getString("Value"), 1, false);
 			}
 
@@ -84,7 +84,7 @@ public class M3Printer extends CordovaPlugin {
 			print.printText("رقم الفاتورة", 1, true);
 			print.printText(json.getJSONObject("Reciept").getString("InvoiceId"), 1, false);
 
-			Int s = json.getJSONObject("Reciept").getInt("Status");
+			int s = json.getJSONObject("Reciept").getInt("Status");
 			String s_str = "غير محدد";
 			if (s == 0) {
 				s_str = "التنفيذ";
