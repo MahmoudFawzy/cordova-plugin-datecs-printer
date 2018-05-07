@@ -35,16 +35,22 @@ import java.util.List;
 
 public class M3Printer extends CordovaPlugin {
 	public static com.nbbse.mobiprint3.Printer print;
+	public Context context;
 
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
 		print = Printer.getInstance();
+		context = this.cordova.getActivity().getApplicationContext();
+
 	}
 
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if (action.equals("printText")) {
 			String txt = args.getString(0);
+
+			InputStream is = context.getResources().openRawResource(R.raw.bitmap24);
+			print.printBitmap(is);
 
 			JSONObject json = new JSONObject(txt);
 			JSONArray jReciept = json.getJSONObject("Reciept").getJSONArray("Fields");
@@ -53,18 +59,18 @@ public class M3Printer extends CordovaPlugin {
 				JSONObject jO = jReciept.getJSONObject(i);
 
 				print.printText(jO.getString("FieldName"), 1, true);
-				print.printText(jO.getString("Value"), 2, false);
+				print.printText(jO.getString("Value"), 1, false);
 			}
 
 			print.printText("تكلفة الخدمة", 1, true);
-			print.printText(json.getJSONObject("Reciept").getString("Totalprice"), 2, false);
+			print.printText(json.getJSONObject("Reciept").getString("Totalprice"), 1, false);
 
 			print.printText("رسوم التحصيل", 1, true);
-			print.printText(json.getJSONObject("Reciept").getString("Fees"), 2, false);
+			print.printText(json.getJSONObject("Reciept").getString("Fees"), 1, false);
 
 			int tot = json.getJSONObject("Reciept").getInt("Totalprice") + json.getJSONObject("Reciept").getInt("Fees");
 			print.printText("الإجمالي", 1, true);
-			print.printText(String.valueOf(tot), 2, false);
+			print.printText(String.valueOf(tot), 1, false);
 
 			String sDate = json.getJSONObject("Reciept").getString("AddedTime");
 
@@ -79,16 +85,16 @@ public class M3Printer extends CordovaPlugin {
 			SimpleDateFormat dateFormat_time = new SimpleDateFormat("hh:mm aa");
 
 			print.printText("تاريخ التحصيل", 1, true);
-			print.printText(dateFormat_date.format(convertedDate), 2, false);
+			print.printText(dateFormat_date.format(convertedDate), 1, false);
 
 			print.printText("وقت التحصيل", 1, true);
-			print.printText(dateFormat_time.format(convertedDate), 2, false);
+			print.printText(dateFormat_time.format(convertedDate), 1, false);
 
 			print.printText("رقم الفرع", 1, true);
-			print.printText(json.getJSONObject("Reciept").getString("AgentCode"), 2, false);
+			print.printText(json.getJSONObject("Reciept").getString("AgentCode"), 1, false);
 
 			print.printText("رقم الفاتورة", 1, true);
-			print.printText(json.getJSONObject("Reciept").getString("InvoiceId"), 2, false);
+			print.printText(json.getJSONObject("Reciept").getString("InvoiceId"), 1, false);
 
 			int s = json.getJSONObject("Reciept").getInt("Status");
 			String s_str = "غير محدد";
@@ -100,7 +106,7 @@ public class M3Printer extends CordovaPlugin {
 				s_str = "مسدد";
 			}
 			print.printText("حالة الفاتورة", 1, true);
-			print.printText(s_str, 2, false);
+			print.printText(s_str, 1, false);
 
 			print.printText("--------------------------------");
 			print.printText(json.getJSONObject("Reciept").getString("Footer"), 1, true);
