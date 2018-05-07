@@ -43,10 +43,10 @@ public class M3Printer extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if (action.equals("printText")) {
 			String txt = args.getString(0);
-			JSONParser jsonParser = new JSONParser();
-			JSONObject jsonObject = (JSONObject) jsonParser.parse(txt);
 
-			print.printText((String) jsonObject.get("StatusDescription"), 2, true);
+			JSONObject json = new JSONObject(txt);
+
+			print.printText(json.getString("StatusDescription"), 2, true);
 			print.printEndLine();
 			callbackContext.success("1");
 			return true;
