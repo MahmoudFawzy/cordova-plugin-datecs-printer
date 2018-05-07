@@ -56,14 +56,14 @@ public class M3Printer extends CordovaPlugin {
 				print.printText(jO.getString("Value"), 1, false);
 			}
 
-			print.printText("تكلفة الخدمة", 1, true);
+			print.printText("تكلفة الخدمة", 2, true);
 			print.printText(json.getJSONObject("Reciept").getString("Totalprice"), 1, false);
 
-			print.printText("رسوم التحصيل", 1, true);
+			print.printText("رسوم التحصيل", 3, true);
 			print.printText(json.getJSONObject("Reciept").getString("Fees"), 1, false);
 
 			int tot = json.getJSONObject("Reciept").getInt("Totalprice") + json.getJSONObject("Reciept").getInt("Fees");
-			print.printText("الإجمالي", 1, true);
+			print.printText("الإجمالي", 2, true);
 			print.printText(String.valueOf(tot), 1, false);
 
 			String sDate = json.getJSONObject("Reciept").getString("AddedTime");
@@ -78,16 +78,16 @@ public class M3Printer extends CordovaPlugin {
 			SimpleDateFormat dateFormat_date = new SimpleDateFormat("dd-MM-yyyy");
 			SimpleDateFormat dateFormat_time = new SimpleDateFormat("hh:mm aa");
 
-			print.printText("تاريخ التحصيل", 1, true);
-			print.printText(dateFormat_date.format(convertedDate), 1, false);
+			print.printText("تاريخ التحصيل", 2, true);
+			print.printText(dateFormat_date.format(convertedDate));
 
-			print.printText("وقت التحصيل", 1, true);
-			print.printText(dateFormat_time.format(convertedDate), 1, false);
+			print.printText("وقت التحصيل", 2, true);
+			print.printText(dateFormat_time.format(convertedDate));
 
-			print.printText("رقم الفرع", 1, true);
+			print.printText("رقم الفرع", 2, true);
 			print.printText(json.getJSONObject("Reciept").getString("AgentCode"), 1, false);
 
-			print.printText("رقم الفاتورة", 1, true);
+			print.printText("رقم الفاتورة",2, true);
 			print.printText(json.getJSONObject("Reciept").getString("InvoiceId"), 1, false);
 
 			int s = json.getJSONObject("Reciept").getInt("Status");
@@ -99,10 +99,10 @@ public class M3Printer extends CordovaPlugin {
 			} else if (s == 1 || s == 3 || s == 4) {
 				s_str = "مسدد";
 			}
-			print.printText("حالة الفاتورة", 1, true);
+			print.printText("حالة الفاتورة", 2, true);
 			print.printText(s_str, 1, false);
 
-			print.printText("----------------------------------------------------", 1, true);
+			print.printText("--------------------------------------");
 			print.printText(json.getJSONObject("Reciept").getString("Footer"), 1, true);
 
 			print.printEndLine();
