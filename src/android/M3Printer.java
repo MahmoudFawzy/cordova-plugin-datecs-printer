@@ -68,7 +68,7 @@ public class M3Printer extends CordovaPlugin {
 
 			String sDate = json.getJSONObject("Reciept").getString("AddedTime");
 
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-ddTHH:mm:s.S");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
 			Date convertedDate = dateFormat.parse(sDate);
 
 			SimpleDateFormat dateFormat_date = new SimpleDateFormat("dd-MM-yyyy");
