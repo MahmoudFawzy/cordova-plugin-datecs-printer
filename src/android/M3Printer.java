@@ -4,6 +4,8 @@ import com.nbbse.mobiprint3.*;
 import org.apache.cordova.*;
 
 import java.io.*;
+import java.util.*;
+import java.text.*;
 import java.util.Hashtable;
 import java.util.Set;
 import java.util.UUID;
