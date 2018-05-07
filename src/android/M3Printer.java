@@ -32,7 +32,7 @@ import jdk.nashorn.internal.parser.*;
 import android.util.Base64;
 import java.util.ArrayList;
 import java.util.List;
-import android.content.Context;
+import android.content.*;
 
 public class M3Printer extends CordovaPlugin {
 	public static com.nbbse.mobiprint3.Printer print;
